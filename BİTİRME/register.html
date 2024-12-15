@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Kayıt Ol</h1>
+        <form id="register-form">
+            <input type="text" id="new-username" placeholder="Kullanıcı Adı" required>
+            <input type="password" id="new-password" placeholder="Şifre" required>
+            <input type="email" id="email" placeholder="E-posta" required>
+            <button type="submit" class="submit-btn">Kayıt Ol</button>
+        </form>
+        <p><a href="login.html" class="back-btn">Giriş Sayfasına Dön</a></p>
+    </div>
+    <script>
+        // Basit kayıt işlemi
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+            const email = document.getElementById('email').value;
+
+            // Basit doğrulama
+            if (username && password && email) {
+                alert(`Kayıt başarılı! Kullanıcı adı: ${username}`);
+                window.location.href = 'index1.html'; // Giriş sayfasına yönlendirme
+            } else {
+                alert('Lütfen tüm alanları doldurun.');
+            }
+        });
+    </script>
+</body>
+</html>

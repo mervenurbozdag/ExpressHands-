@@ -1,0 +1,89 @@
+/* Genel Stil Ayarları */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar .logo h2 {
+    display: inline-block;
+    color: white;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Slider Bölümü */
+.slider {
+    position: relative;
+    max-width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.fade {
+    animation: fadeEffect 3s infinite;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Özel Günler Bölümü */
+.ozel-gunler {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+}
+
+.ozel-gunler h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.ozel-gunler ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ozel-gunler li {
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

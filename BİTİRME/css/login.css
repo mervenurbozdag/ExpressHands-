@@ -1,0 +1,63 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg,#1e3a8a, #1e3a8a);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: #ffffff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background: #1e3a8a;
+    color: white;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.submit-btn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+.footer-text {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-text a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: #16357a;
+    text-decoration: underline;
+}

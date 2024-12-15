@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Girişi</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Kullanıcı Girişi</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+            <input type="password" id="password" placeholder="Şifre" required>
+            <label>
+                <input type="checkbox" id="agreement"> Sözleşmeyi kabul ediyorum
+            </label>
+            <button type="submit" id="login-button" class="submit-btn" disabled>Giriş Yap</button>
+        </form>
+        <div class="footer-text">
+            <a href="password-reset.html" class="back-btn">Şifremi Unuttum</a>
+            <span> | </span>
+            <a href="register.html" class="back-btn">Kayıt Ol</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

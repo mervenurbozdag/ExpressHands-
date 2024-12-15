@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Günler</title>
+    <link rel="stylesheet" href="ozel.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2><img src="images/logo.jpg" alt="Logo" style="height: 50px;"> Bana Kulak Ver</h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="indext1.html">ANASAYFA</a></li>
+                <li><a href="etkinlikler.html">ÖĞRENİYORUM</a></li>
+                <li><a href="ozel.html">ÖZEL GÜNLER</a></li>
+                <li><a href="login.html">GİRİŞ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider">
+        <div class="slide fade">
+            <img src="images/1.jpg" alt="Resim 1">
+        </div>
+        <div class="slide fade">
+            <img src="images/2.jpg" alt="Resim 2">
+        </div>
+    </div>
+
+    <div class="ozel-gunler">
+        <h1>Özel Günler</h1>
+        <ul>
+            <li>7-14 Ocak Görme Engelliler Haftası</li>
+            <li>3 Mart Dünya İşitme Engelliler Günü</li>
+            <li>21 Mart Down Sendromlular Günü</li>
+            <li>2 Nisan Dünya Otizm Farkındalık Günü</li>
+            <li>9 Mayıs Dünya Çölyak Günü</li>
+            <li>10-16 Mayıs Dünya Engelliler Haftası</li>
+            <li>19-25 Eylül İşitme Engelliler Haftası</li>
+            <li>10 Ekim Dünya Ruh Sağlığı Günü</li>
+            <li>15 Ekim Görme Engelliler Güvenlik Günü</li>
+            <li>3 Aralık Dünya Engelliler Günü</li>
+        </ul>
+    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Günler</title>
+    <link rel="stylesheet" href="ozel.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+                <h1>Bana Kulak Ver</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="indext1.html">ANASAYFA</a></li>
+                <li><a href="etkinlikler.html">ÖĞRENİYORUM</a></li>
+                <li><a href="ozel.html">ÖZEL GÜNLER</a></li>
+                <li><a href="login.html">GİRİŞ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider">
+        <div class="slides">
+            <img src="images/1.jpg" alt="Resim 1">
+            <img src="images/2.jpg" alt="Resim 2">
+        </div>
+    </div>
+
+    <main>
+        <h2>Özel Günler</h2>
+        <ul>
+            <li>7-14 Ocak Görme Engelliler Haftası</li>
+            <li>3 Mart Dünya İşitme Engelliler Günü</li>
+            <li>21 Mart Down Sendromlular Günü</li>
+            <li>2 Nisan Dünya Otizm Farkındalık Günü</li>
+            <li>9 Mayıs Dünya Çölyak Günü</li>
+            <li>10-16 Mayıs Dünya Engelliler Haftası</li>
+            <li>19-25 Eylül İşitme Engelliler Haftası</li>
+            <li>10 Ekim Dünya Ruh Sağlığı Günü</li>
+            <li>15 Ekim Görme Engelliler Güvenlik Günü</li>
+            <li>3 Aralık Dünya Engelliler Günü</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 İşaret Dili Platformu. Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+</html>
+
+    <footer>
+        <p>&copy; 2024 İşaret Dili Platformu. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide() {
+            slides.forEach((slide, index) => {
+                slide.style.display = index === currentIndex ? 'block' : 'none';
+            });
+            currentIndex = (currentIndex + 1) % slides.length;
+        }
+
+        setInterval(showSlide, 3000); // 3 saniye aralıklarla geçiş
+        showSlide(); // İlk slaytı göster
+    </script>
+
+</body>
+</html>
