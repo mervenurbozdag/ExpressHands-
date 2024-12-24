@@ -3,19 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İşaret Dili Çevirici</title>
-    <link rel="stylesheet" href="css/translate.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <link rel="stylesheet" href="css/ana.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" crossorigin="anonymous" />
+    <title>İşaret Dili Bilgilendirme</title>
 </head>
 <body>
-    <div class="container">
-        <h1>İşaret Dili Metne Çevir</h1>
-        <div id="video-container">
-            <video id="video" autoplay></video>
-            <canvas id="canvas" style="display: none;"></canvas>
-        </div>
-        <h2>Tahmin: <span id="prediction-result">-</span></h2>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2><img src="images/logo.jpg" alt="Logo">Bana Kulak Ver</h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="indext1.html">ANASAYFA</a></li>
+                <li><a href="etkinlikler.html">ÖĞRENİYORUM</a></li>
+                <li><a href="ozelGunler.html">ÖZEL GÜNLER</a></li>
+                <li><a href="login.html">GİRİŞ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Sign Language Prediction</h1>
+
+    <div class="prediction-container">
+        <video id="webcam" autoplay playsinline width="640" height="480"></video>
+        <div id="result">Tahmin: Henüz yapılmadı.</div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        const video = document.getElementById('webcam'); // Video elemanı
+        const resultDiv = document.getElementById('result'); // Sonuç alanı
+    
+        // Web kamerasını başlat
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Webcam başlatılamadı:", err);
+                alert("Web kamerasına erişim izni verilmedi. Lütfen tarayıcı ayarlarınızı kontrol edin.");
+            }
+        }
+
+        // Sürekli tahmin yap
+        async function continuouslyPredict() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 640; // Backend'e uygun genişlik
+            canvas.height = 480; // Backend'e uygun yükseklik
+            const ctx = canvas.getContext('2d');
+    
+            // Her 1 saniyede bir tahmin yap
+            setInterval(async () => {
+                try {
+                    // Video karesini al ve canvas'a çiz
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    
+                    // Görüntüyü base64 formatında al
+                    const imageData = canvas.toDataURL('image/jpeg');
+    
+                    // Flask backend'e gönder
+                    const response = await fetch('http://127.0.0.1:5000/predict', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain' },
+                        body: imageData
+                    });
+    
+                    // Backend'den gelen sonucu işle
+                    const result = await response.json();
+    
+                    // Sonuçları güncelle
+                    if (result.error) {
+                        resultDiv.innerText = `Hata: ${result.error}`;
+                    } else {
+                        resultDiv.innerText = `Tahmin: ${result.prediction}`;
+                    }
+                } catch (err) {
+                    resultDiv.innerText = `Tahmin sırasında bir hata oluştu: ${err.message}`;
+                }
+            }, 1000); // 1 saniyede bir çalışır
+        }
+    
+        // Kamerayı başlat ve tahmin işlemini başlat
+        startWebcam();
+        continuouslyPredict();
+    </script>
 </body>
 </html>
+
